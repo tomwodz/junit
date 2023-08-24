@@ -19,6 +19,10 @@ public class Meal {
         return price;
     }
     public int getDiscountedPrice(int discount){
+        if(discount > this.price){
+            throw  new IllegalArgumentException("Discount cannot bu higher than the price!");
+        }
+
         return this.price - discount;
     }
 
