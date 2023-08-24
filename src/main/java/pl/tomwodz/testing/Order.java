@@ -14,9 +14,12 @@ public class Order {
         this.meals.remove(meal);
     }
 
-
     public List<Meal> getMeals() {
         return meals;
+    }
+
+    void cancel() {
+        this.meals.clear();
     }
 
 }
