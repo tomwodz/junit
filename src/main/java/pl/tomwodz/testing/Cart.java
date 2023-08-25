@@ -1,5 +1,7 @@
 package pl.tomwodz.testing;
 
+import pl.tomwodz.testing.order.Order;
+
 import java.util.ArrayList;
 import java.util.List;
 

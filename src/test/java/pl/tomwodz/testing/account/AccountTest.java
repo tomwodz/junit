@@ -1,8 +1,10 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.account;
 
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import pl.tomwodz.testing.account.Account;
+import pl.tomwodz.testing.account.Address;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -80,6 +82,17 @@ class AccountTest {
             assertTrue(account.isActive());
         });
 
+    }
+
+    @Test //Conformance
+    void invalidEmailShouldBeThrowException(){
+
+        //given
+        Account account = new Account();
+
+        //when
+        //then
+        assertThrows(IllegalArgumentException.class, ()-> account.setEmail("wrong"));
     }
 
 }

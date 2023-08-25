@@ -1,6 +1,9 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.order;
 
 import org.junit.jupiter.api.*;
+import pl.tomwodz.testing.Meal;
+import pl.tomwodz.testing.order.Order;
+import pl.tomwodz.testing.order.OrderBackup;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,7 +34,7 @@ public class OrderBackupTest {
 
         //given
         Meal meal = new Meal(7, "Fries");
-        Order order = new Order();
+        pl.tomwodz.testing.order.Order order = new Order();
         order.addMealToOrder(meal);
 
         //when

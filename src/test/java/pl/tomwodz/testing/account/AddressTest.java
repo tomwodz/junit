@@ -1,4 +1,4 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.account;
 
 import org.hamcrest.Matchers;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,4 +1,4 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.order;
 
 public enum OrderStatus {
     ORDERED,
