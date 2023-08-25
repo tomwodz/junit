@@ -1,10 +1,12 @@
 package pl.tomwodz.testing;
 
+import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
 
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumingThat;
 
 ;
 
@@ -62,6 +64,22 @@ class AccountTest {
         //then
         assertNotNull(defaultAddress);
         assertThat(defaultAddress).isNotNull();
+
+    }
+
+    @RepeatedTest(5)
+    void newAccountWithNotNullAddressShouldByActive(){
+
+        //given
+        Address address = new Address("Wiśniowa","77");
+
+        //when
+        Account account = new Account(address);
+
+        //then
+        assumingThat(address != null, () -> {
+            assertTrue(account.isActive());
+        });
 
     }
 
