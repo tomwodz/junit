@@ -4,5 +4,5 @@ public interface CartHandler {
 
     boolean canHandleCart(Cart cart);
 
-    void sendToPreper(Cart cart);
+    void sendToPrepare(Cart cart);
 }
