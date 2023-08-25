@@ -2,6 +2,7 @@ package pl.tomwodz.testing;
 
 
 import org.junit.jupiter.api.DynamicTest;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
@@ -9,7 +10,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.internal.matchers.Or;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,6 +66,7 @@ class MealTest {
         assertThat(price, lessThan(20));
     }
 
+    @Tag("fries")
     @TestFactory
     Collection<DynamicTest> calculatedMealPrices(){
         Order order= new Order();
