@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
@@ -26,12 +27,12 @@ public class AccountServiceTest {
         List<Account> accountList = accountService.getAllActiveAccounts();
 
         //then
-        assertThat(accountList, Matchers.hasSize(2));
+        assertThat(accountList, hasSize(2));
 
     }
 
     @Test
-    void geNotActiveAccounts() {
+    void getNotActiveAccounts() {
 
         //given
         AccountRepository accountRepository = mock(AccountRepository.class);
@@ -42,7 +43,7 @@ public class AccountServiceTest {
         List<Account> accountList = accountService.getAllActiveAccounts();
 
         //then
-        assertThat(accountList, Matchers.hasSize(0));
+        assertThat(accountList, hasSize(0));
 
     }
 

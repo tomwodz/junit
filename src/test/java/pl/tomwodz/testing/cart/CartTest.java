@@ -1,7 +1,9 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.cart;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import pl.tomwodz.testing.Meal;
+import pl.tomwodz.testing.cart.Cart;
 import pl.tomwodz.testing.order.Order;
 
 import java.time.Duration;
