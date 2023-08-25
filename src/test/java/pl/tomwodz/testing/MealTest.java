@@ -3,6 +3,7 @@ package pl.tomwodz.testing;
 
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestFactory;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.function.Executable;
@@ -20,9 +21,59 @@ import java.util.stream.Stream;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class MealTest {
+    @Test
+    void shouldReturnDiscountedPrice() {
+
+        //given
+        Meal meal = new Meal(100);
+
+        //when
+        int discountedPrice = meal.getDiscountedPrice(10);
+
+        //then
+        assertEquals(90,discountedPrice);
+        assertThat(discountedPrice,equalTo(90));
+    }
+
+    @Test
+    void referencesToTheSameObjectShouldBeEqual() {
+
+        //given
+        Meal meal1 = new Meal(10);
+        Meal meal2 = meal1;
+
+        //then
+        assertSame(meal1, meal2);
+        assertThat(meal1, sameInstance(meal2));
+    }
+
+    @Test
+    void referencesToTheDifferentObjectShouldBeEqual() {
+
+        //given
+        Meal meal1 = new Meal(10);
+        Meal meal2 = new Meal(20);
+
+        //then
+        assertNotSame(meal1, meal2);
+        assertThat(meal1,not(sameInstance(meal2)));
+    }
+
+    @Test
+    void twoMealsShouldBeEqualWhenPriceAndNameAreTheSame(){
+
+        //given
+        Meal meal1 = new Meal(10, "Ciastko");
+        Meal meal2 = new Meal(10, "Ciastko");
+
+        //then
+        assertEquals(meal1,meal2,"Checking if two meals are equal");
+    }
 
     @ParameterizedTest
     @ValueSource(ints = {5, 10, 15, 19})

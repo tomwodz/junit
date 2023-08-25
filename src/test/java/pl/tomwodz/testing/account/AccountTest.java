@@ -3,12 +3,13 @@ package pl.tomwodz.testing.account;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import pl.tomwodz.testing.account.Account;
-import pl.tomwodz.testing.account.Address;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.*;
+import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assumptions.assumingThat;
+
 
 @Tag("fries")
 class AccountTest {
@@ -20,7 +21,8 @@ class AccountTest {
         Account newAccount = new Account();
         //then
         assertFalse(newAccount.isActive(),"Check if new account is not active");
-        assertThat(newAccount.isActive()).isFalse();
+        assertThat(newAccount.isActive(),equalTo(false));
+        assertThat(newAccount.isActive(),is(false));
     }
 
     @Test
@@ -33,7 +35,7 @@ class AccountTest {
 
         //then
         assertTrue(newAccount.isActive());
-        assertThat(newAccount.isActive()).isTrue();
+        assertThat(newAccount.isActive(), equalTo(true));
     }
 
     @Test
@@ -47,7 +49,7 @@ class AccountTest {
 
         //then
         assertNull(address);
-        assertThat(address).isNull();
+        assertThat(address, nullValue());
 
     }
 
@@ -64,7 +66,7 @@ class AccountTest {
 
         //then
         assertNotNull(defaultAddress);
-        assertThat(defaultAddress).isNotNull();
+        assertThat(defaultAddress, is(notNullValue()));
 
     }
 
@@ -94,5 +96,17 @@ class AccountTest {
         //then
         assertThrows(IllegalArgumentException.class, ()-> account.setEmail("wrong"));
     }
+
+    @Test
+    void validEmailShouldBeSet(){
+        //given
+        Account account = new Account();
+
+        //when
+        account.setEmail("test@test.pl");
+
+        //then
+        assertThat(account.getEmail(), is("test@test.pl"));
+ }
 
 }

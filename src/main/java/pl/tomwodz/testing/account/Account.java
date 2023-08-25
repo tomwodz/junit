@@ -18,6 +18,10 @@ public class Account {
         this.defaultDeliveryAddress = defaultDeliveryAddress;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public Account(Address defaultDeliveryAddress) {
         this.defaultDeliveryAddress = defaultDeliveryAddress;
         if (defaultDeliveryAddress != null) {
@@ -36,7 +40,7 @@ public class Account {
     }
 
     public void setEmail(String email) {
-        if(email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]]+\\.[A-Za-z]]{2,6}$")){
+        if(email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")){
             this.email = email;
         }
         else {
