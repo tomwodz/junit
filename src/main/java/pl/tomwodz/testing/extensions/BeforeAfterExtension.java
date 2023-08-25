@@ -1,4 +1,4 @@
-package pl.tomwodz.testing.order;
+package pl.tomwodz.testing.extensions;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;

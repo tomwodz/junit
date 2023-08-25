@@ -1,4 +1,4 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.extensions;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
