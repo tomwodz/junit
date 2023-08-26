@@ -17,4 +17,8 @@ public class AccountService {
                 .filter(Account::isActive)
                 .collect(Collectors.toList());
     }
+
+    List<String> findByName(String name){
+        return accountRepository.getByName(name);
+    }
 }
