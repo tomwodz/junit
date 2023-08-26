@@ -11,8 +11,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.tomwodz.testing.extensions.IAExceptionIgnoreExtension;
 import pl.tomwodz.testing.order.Order;
@@ -26,11 +25,16 @@ import java.util.stream.Stream;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
+
 
 class MealTest {
+
+    @Spy
+    private Meal mealSpy;
 
     @Test
     void shouldReturnDiscountedPrice() {
@@ -164,6 +168,25 @@ class MealTest {
 
         //then
         assertThat(result, equalTo(45));
+    }
+
+    @ExtendWith(MockitoExtension.class)
+    @Test
+    void testMealSumPriceWithSpy(){
+
+        //given
+        //Meal mealSpy = spy(Meal.class);
+
+        given(mealSpy.getPrice()).willReturn(15);
+        given(mealSpy.getQuantity()).willReturn(2);
+
+        //when
+        int result = mealSpy.sumPrice();
+
+        //then
+        then(mealSpy).should().getPrice();
+        then(mealSpy).should().getQuantity();
+        assertThat(result, equalTo(30));
     }
 
 
