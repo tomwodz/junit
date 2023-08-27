@@ -1,4 +1,4 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.meal;
 
 import java.util.Objects;
 
@@ -59,6 +59,14 @@ public class Meal {
                 "price=" + price +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     int sumPrice(){

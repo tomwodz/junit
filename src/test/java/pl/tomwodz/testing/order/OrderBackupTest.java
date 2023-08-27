@@ -1,9 +1,7 @@
 package pl.tomwodz.testing.order;
 
 import org.junit.jupiter.api.*;
-import pl.tomwodz.testing.Meal;
-import pl.tomwodz.testing.order.Order;
-import pl.tomwodz.testing.order.OrderBackup;
+import pl.tomwodz.testing.meal.Meal;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

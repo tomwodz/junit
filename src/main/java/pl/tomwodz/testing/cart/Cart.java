@@ -1,6 +1,6 @@
 package pl.tomwodz.testing.cart;
 
-import pl.tomwodz.testing.Meal;
+import pl.tomwodz.testing.meal.Meal;
 import pl.tomwodz.testing.order.Order;
 
 import java.util.ArrayList;

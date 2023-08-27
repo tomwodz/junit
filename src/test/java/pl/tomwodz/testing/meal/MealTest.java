@@ -1,4 +1,4 @@
-package pl.tomwodz.testing;
+package pl.tomwodz.testing.meal;
 
 
 import org.junit.jupiter.api.DynamicTest;
@@ -14,6 +14,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 import pl.tomwodz.testing.extensions.IAExceptionIgnoreExtension;
+import pl.tomwodz.testing.meal.Meal;
 import pl.tomwodz.testing.order.Order;
 
 import java.util.ArrayList;
